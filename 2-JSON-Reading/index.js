@@ -1,5 +1,5 @@
  async function loadData() {
-    const response = await axios.get("https://raw.githubusercontent.com/kunxin-chor/data-files-and-stuff/master/json-simple.json");
+    const response = await axios.get("data.json");
     console.log(response.data)
     document.querySelector("#output")
         .innerHTML = `
