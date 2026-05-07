@@ -4,9 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Hello World Exercise</title>
+
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.js"
+      integrity="sha512-vHNHepeQWwAggJlhEk932jRS5sNdn/Nn4F+w4TpXW5dA+04qnd3e7YpfXo6auWhFG6z3FVhmScG4ovtF+qYeZw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+    </script>
   </head>
+
   <body>
 
+    <script>
+      axios.get('https://4geeksacademy.github.io/exercise-assets/txt/hello.txt')
+        .then(function(response) {
+          document.body.innerHTML = response.data;
+        });
+    </script>
 
   </body>
 </html>
