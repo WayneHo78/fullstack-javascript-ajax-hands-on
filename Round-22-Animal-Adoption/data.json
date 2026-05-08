@@ -1,8 +1,16 @@
+[{
+  "Name": "Buddy",
+  "Type of Animal": "Dog",
+  "Breed": "Golden Retriever",
+  "Date of Birth": "2019-07-15",
+  "Medical Conditions": ["Allergy to certain foods", "Mild Arthritis"],
+  "Photo": "https://fastly.picsum.photos/id/169/2500/1662.jpg?hmac=3DBeyQbiPxO88hBdhIuFPbvy2ff7cm9vmnq8lPIL9Ug"
+},
 {
-    "Name": "Buddy",
-    "Type of Animal": "Dog",
-    "Breed": "Golden Retriever",
-    "Date of Birth": "2019-07-15",
-    "Medical Conditions": ["Allergy to certain foods", "Mild Arthritis"],
-    "Photo": "https://your-image-url-here.com/image.jpg"
-}
+  "Name": "Xiaohei",
+  "Type of Animal": "Bad Dog",
+  "Breed": "Black Random Dog",
+  "Date of Birth": "0001-01-01",
+  "Medical Conditions": ["Immortal", "Speaks French"],
+  "Photo": "https://picsum.photos/id/237/200/300"
+}]
