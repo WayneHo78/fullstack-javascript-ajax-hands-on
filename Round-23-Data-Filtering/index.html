@@ -1,147 +1,41 @@
-// URL containing the JSON customer data
-const userURL =
-  "https://raw.githubusercontent.com/robconery/json-sales-data/master/data/customers.json";
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
 
-// Select the HTML elements we want to work with
-const resultsDiv = document.querySelector("#results");
+    <title>Round 23 Data Filtering</title>
 
-const countryInput = document.querySelector("#country-input");
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    >
 
-const searchBtn = document.querySelector("#search-btn");
+    <!-- Step 1: Include axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1/dist/axios.min.js"></script>
+  </head>
 
-const resetBtn = document.querySelector("#reset-btn");
+  <body class="container mt-3">
 
-// Create an empty array to store all users after loading the JSON data
-let users = [];
+    <!-- Step 3 -->
+    <input
+      type="text"
+      class="form-control mb-2"
+      id="country-input"
+      placeholder="Enter country"
+    >
 
+    <button class="btn btn-primary" id="search-btn">
+      Search
+    </button>
 
-// ======================================================
-// FUNCTION: displayUsers
-// PURPOSE:
-// This function receives an array of users and displays
-// their names on the webpage.
-//
-// PARAMETER:
-// userList = an array of user objects
-//
-// HOW IT WORKS:
-// 1. Clear the existing results
-// 2. Loop through each user
-// 3. Create HTML elements
-// 4. Add the user's name into the page
-// ======================================================
-function displayUsers(userList) {
+    <button class="btn btn-secondary" id="reset-btn">
+      Reset
+    </button>
 
-  // Clear previous results before displaying new ones
-  resultsDiv.innerHTML = "";
+    <div id="results" class="mt-3"></div>
 
-  // Loop through each user in the array
-  for (const user of userList) {
+    <script src="index.js"></script>
 
-    // Create a container div
-    const block = document.createElement("div");
-
-    // Create a heading element
-    const heading = document.createElement("h3");
-
-    // Display the user's first and last name
-    heading.textContent = `${user.first} ${user.last}`;
-
-    // Put the heading inside the div
-    block.appendChild(heading);
-
-    // Put the div onto the webpage
-    resultsDiv.appendChild(block);
-
-  }
-
-}
-
-
-// ======================================================
-// FUNCTION: loadUsers
-// PURPOSE:
-// This function loads the JSON data using axios.
-//
-// HOW IT WORKS:
-// 1. Send a GET request to the JSON URL
-// 2. Save all users into the users array
-// 3. Take only the first 10 users
-// 4. Display them on the webpage
-// ======================================================
-async function loadUsers() {
-
-  // Download JSON data from the URL
-  const response = await axios.get(userURL);
-
-  // Store the downloaded data into the users array
-  users = response.data;
-
-  // Take only the first 10 users
-  const firstTenUsers = users.slice(0, 10);
-
-  // Display the first 10 users
-  displayUsers(firstTenUsers);
-
-}
-
-
-// ======================================================
-// EVENT LISTENER: Search Button
-// PURPOSE:
-// When the Search button is clicked:
-//
-// 1. Get the country name typed by the user
-// 2. Filter users from that country
-// 3. Display only matching users
-// ======================================================
-searchBtn.addEventListener("click", function () {
-
-  // Get textbox value and convert to lowercase
-  const countryName = countryInput.value.toLowerCase();
-
-  // Filter users whose country matches the textbox value
-  const filteredUsers = users.filter(function (user) {
-
-    return user.country.toLowerCase() === countryName;
-
-  });
-
-  // Display the filtered users
-  displayUsers(filteredUsers);
-
-});
-
-
-// ======================================================
-// EVENT LISTENER: Reset Button
-// PURPOSE:
-// When the Reset button is clicked:
-//
-// 1. Take the first 10 users again
-// 2. Display them on the webpage
-// ======================================================
-resetBtn.addEventListener("click", function () {
-
-  // Take the first 10 users
-  const firstTenUsers = users.slice(0, 10);
-
-  // Display them
-  displayUsers(firstTenUsers);
-
-});
-
-
-// ======================================================
-// EVENT LISTENER: DOMContentLoaded
-// PURPOSE:
-// This event runs when the webpage is fully loaded.
-//
-// It calls loadUsers() so the first 10 users
-// appear immediately when the page opens.
-// ======================================================
-window.addEventListener("DOMContentLoaded", function () {
-
-  loadUsers();
-
-});
+  </body>
+</html>
